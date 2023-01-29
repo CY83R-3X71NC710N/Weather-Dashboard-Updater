@@ -18,9 +18,11 @@ jobs:
       run: |
         python -m venv venv
         source venv/bin/activate
+        sudo apt-get install python3-requests
         pip install -r requirements.txt
     - name: Run script
-      run: python get_weather_data.py
+      run: |
+        python get_weather_data.py
     - name: Commit changes
       run: |
         git config --local user.email "github-actions@example.com"
