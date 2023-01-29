@@ -3,9 +3,8 @@
 name: Daily Script
 
 on:
-  push:
-    branches: [ main ]
-
+  schedule:
+    - cron: "0 0 * * *" # run every day at midnight
 jobs:
   build:
     runs-on: ubuntu-latest
