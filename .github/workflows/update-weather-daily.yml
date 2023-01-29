@@ -1,0 +1,26 @@
+name: Daily Weather Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # runs every day at midnight
+
+jobs:
+  update_weather:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Python script
+      run: python get_weather_data.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "github-actions@example.com"
+        git config --local user.name "GitHub Actions"
+        git add get_weather_data.py
+        git commit -m "Automated daily weather update"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
