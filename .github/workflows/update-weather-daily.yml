@@ -18,16 +18,13 @@ jobs:
       run: |
         pip install requests
         pip install -r requirements.txt
-        python get_weather_data.py || exit 1
+        python get_weather_data.py
     - name: Commit changes
-      if: success()
       run: |
         git config --local user.email "github-actions@example.com"
         git config --local user.name "GitHub Actions"
         git add **
         git commit -m "Update weather data"
-    - name: Push changes
-      if: success()
-      uses: ad-m/github-push-action@main
+        git push
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
