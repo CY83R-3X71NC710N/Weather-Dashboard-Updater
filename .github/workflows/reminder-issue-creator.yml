@@ -18,8 +18,9 @@ jobs:
       - name: Create an issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.pat_token }}
           title: Daily Checkin
           body: Have we completed everything we wished to today?
           name: ${{ secrets.NAME }}
           email: ${{ secrets.EMAIL }}
+          as: user
