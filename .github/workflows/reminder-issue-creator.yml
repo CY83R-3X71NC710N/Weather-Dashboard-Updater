@@ -23,5 +23,5 @@ jobs:
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: ${{ steps.title.outputs.random_title }}
-          body: ${{ steps.body.outputs.random_body }}
+          title: muhahaha
+          body: muahhaha
