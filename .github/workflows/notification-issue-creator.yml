@@ -1,14 +1,11 @@
-# Create PAT and Email Secret
+# Create PAT and EMAIL Secret
 
 name: Create an issue on commit
 
 on:
   schedule:
-    - cron: '0 0 * * *' # runs every day at midnight
-  push:
-    branches:
-      - main
-
+    - cron: '*/60 * * * *'
+    
 jobs:
   create_issue:
     runs-on: ubuntu-latest
@@ -23,8 +20,8 @@ jobs:
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.pat_token }}
-          title: Daily Checkin
-          body: Have we completed everything we wished to today?
+          title: Hour Check-In
+          body: What the errors we have encountered with the project during this hour? If none you can close this issue
           name: ${{ secrets.NAME }}
           email: ${{ secrets.EMAIL }}
           as: user
