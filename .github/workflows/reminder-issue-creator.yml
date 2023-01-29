@@ -12,8 +12,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Create issue
-      uses: peter-evans/create-issue-from-file@v3
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        content-filepath: issue.txt
+      run: |
+        title="Follow-up on task #$GITHUB_SHA"
+        body="Please follow-up on task #$GITHUB_SHA and provide an update on its progress."
+        labels="Follow-up, task"
+        data="{\"title\":\"$title\",\"body\":\"$body\",\"labels\":[\"$labels\"]}"
+        curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -X POST -d "$data" https://api.github.com/repos/${{ github.repository }}/issues
