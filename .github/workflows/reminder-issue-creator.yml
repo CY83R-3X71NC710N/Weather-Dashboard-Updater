@@ -14,9 +14,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Create Issues
-      uses: einaregilsson/create-issues-action@v1.0.0
+      uses: peter-evans/create-issue-from-file@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        title: "Follow-up on task #{{ env.GITHUB_SHA }}"
-        body: "Please follow-up on task #{{ env.GITHUB_SHA }} and provide an update on its progress."
-        labels: "Follow-up, task"
+        file-path: "issue.txt"
