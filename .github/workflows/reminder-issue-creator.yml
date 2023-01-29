@@ -18,6 +18,8 @@ jobs:
         id: body
         run: |
           echo "::set-output name=random_body::$(shuf -n 10 /usr/share/dict/words | tr '\n' ' ')"
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Configure git user email and name
         run: |
            git config --local user.email "${{ secrets.EMAIL }}"
