@@ -1,2 +1,2 @@
 # Weather-Dashboard-Updater
-Gathers data about the weather from weather website
+Gathers data about the weather from OpenWeatherMap API
