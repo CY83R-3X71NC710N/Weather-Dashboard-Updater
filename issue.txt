@@ -1,20 +1,4 @@
-name: Create Issues on Commit
+Title: Follow-up on task #{{ env.GITHUB_SHA }}
+Labels: Follow-up, task
 
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  create_issues:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Create Issues
-      uses: peter-evans/create-issue-from-file@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        file-path: "issue.txt"
+Please follow-up on task #{{ env.GITHUB_SHA }} and provide an update on its progress.
