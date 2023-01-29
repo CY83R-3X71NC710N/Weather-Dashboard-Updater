@@ -14,14 +14,10 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - name: Install dependencies
+    - name: Install dependencies & Run Script
       run: |
-        python -m venv venv
-        source venv/bin/activate
-        sudo apt-get install python3-requests
+        pip install requests
         pip install -r requirements.txt
-    - name: Run script
-      run: |
         python get_weather_data.py
     - name: Commit changes
       run: |
