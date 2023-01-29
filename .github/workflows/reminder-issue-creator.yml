@@ -21,3 +21,5 @@ jobs:
           github_token: ${{ secrets.github_token }}
           title: Daily Checkin
           body: Have we completed everything we wished to today?
+          name: ${{ secrets.NAME }}
+          email: ${{ secrets.EMAIL }}
