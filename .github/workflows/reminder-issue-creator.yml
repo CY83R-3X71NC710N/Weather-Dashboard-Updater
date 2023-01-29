@@ -17,4 +17,4 @@ jobs:
       uses: peter-evans/create-issue-from-file@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        file-path: "issue.txt"
+        content-filepath: "issue.txt"
