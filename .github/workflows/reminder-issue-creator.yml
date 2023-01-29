@@ -1,30 +1,30 @@
+name: Create an issue on commit
+
 on:
   push:
-    branches: [ master ]
+    branches:
+      - main
 
 jobs:
   create_issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Get today's date
-        id: date
+      - name: Get random title
+        id: title
         run: |
-          echo "::set-output name=today::$(date "+%Y/%m/%d")"
-
+          echo "::set-output name=random_title::$(shuf -n 1 /usr/share/dict/words)"
+      
+      - name: Get random body
+        id: body
+        run: |
+          echo "::set-output name=random_body::$(shuf -n 10 /usr/share/dict/words | tr '\n' ' ')"
+      
       - name: Create an issue
+        run: |
+           git config --local user.email "${{ secrets.EMAIL }}"
+           git config --local user.name "CY83R-3X71NC710N"
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: ${{ steps.date.outputs.today }}
-          body: |
-            ## Daily TODO
-
-            - [ ] Randomly generated task 1
-            - [ ] Randomly generated task 2
-            - [ ] Randomly generated task 3
-
-          labels: |
-            daily
-            todo
-          assignees: ${{ secrets.EMAIL }}
-          as_user: true
+          title: muhahaha
+          body: muahhaha
