@@ -1,0 +1,20 @@
+name: Create Issues on Commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_issues:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create Issues
+      uses: peter-evans/create-issue-from-file@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        file-path: "issue.txt"
