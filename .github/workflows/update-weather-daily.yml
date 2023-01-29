@@ -22,8 +22,8 @@ jobs:
         python get_weather_data.py
     - name: Commit changes
       run: |
-        git config --local user.email "github-actions@example.com"
-        git config --local user.name "GitHub Actions"
+        git config --local user.email "${{ secrets.EMAIL }}"
+        git config --local user.name "CY83R-3X71NC710N"
         git add **
         git commit -m "Update weather data"
         git push
