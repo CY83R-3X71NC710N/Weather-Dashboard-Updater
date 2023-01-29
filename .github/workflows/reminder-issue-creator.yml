@@ -9,15 +9,6 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Get random title
-        id: title
-        run: |
-          echo "::set-output name=random_title::$(shuf -n 1 /usr/share/dict/words)"
-      
-      - name: Get random body
-        id: body
-        run: |
-          echo "::set-output name=random_body::$(shuf -n 10 /usr/share/dict/words | tr '\n' ' ')"
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Configure git user email and name
@@ -28,5 +19,5 @@ jobs:
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: "${{ steps.title.outputs.random_title }}"
-          body: "${{ steps.body.outputs.random_body }}"
+          title: Daily Checkin
+          body: Have we completed everything we wished to today?
