@@ -23,10 +23,10 @@ jobs:
       - name: Configure git user email and name
         run: |
            git config --local user.email "${{ secrets.EMAIL }}"
-           git config --local user.name "CY83R-3X71NC710N"     
+           git config --local user.name "${{ secrets.GITHUB_ACTOR }}"     
       - name: Create an issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: muhahaha
-          body: muahhaha
+          title: "${{ steps.title.outputs.random_title }}"
+          body: "${{ steps.body.outputs.random_body }}"
