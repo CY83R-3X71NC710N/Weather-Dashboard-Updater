@@ -1,4 +1,4 @@
-Title: Follow-up on task #{{ env.GITHUB_SHA }}
-Labels: Follow-up, task
+title: Follow-up on task #{{ env.GITHUB_SHA }}
+labels: Follow-up, task
 
 Please follow-up on task #{{ env.GITHUB_SHA }} and provide an update on its progress.
