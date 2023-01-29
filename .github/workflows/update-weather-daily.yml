@@ -4,7 +4,7 @@ name: Daily Script
 
 on:
   schedule:
-    - cron: "0 0 * * *" # run every day at midnight
+    - cron: '*/30 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
