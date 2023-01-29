@@ -18,11 +18,11 @@ jobs:
         id: body
         run: |
           echo "::set-output name=random_body::$(shuf -n 10 /usr/share/dict/words | tr '\n' ' ')"
-      
-      - name: Create an issue
+      - name: Configure git user email and name
         run: |
            git config --local user.email "${{ secrets.EMAIL }}"
-           git config --local user.name "CY83R-3X71NC710N"
+           git config --local user.name "CY83R-3X71NC710N"     
+      - name: Create an issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
