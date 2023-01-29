@@ -1,26 +1,30 @@
-name: Daily Weather Update
+name: Daily Script
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+
 jobs:
-  update_weather:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Run Python script
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+    - name: Run script
       run: python get_weather_data.py
-
     - name: Commit changes
       run: |
         git config --local user.email "github-actions@example.com"
         git config --local user.name "GitHub Actions"
-        git add get_weather_data.py
-        git commit -m "Automated daily weather update"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        git add **
+        git commit -m "Update weather data"
+        git push
