@@ -1,9 +1,9 @@
 name: Daily Weather Update
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # runs every day at midnight
-
+  push:
+    branches:
+      - main
 jobs:
   update_weather:
     runs-on: ubuntu-latest
