@@ -1,0 +1,21 @@
+name: Create Issues
+
+on:
+  schedule:
+    - cron:  '0 0 * * *' # runs every day at 00:00
+
+jobs:
+  create_issues:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create Issues
+      uses: einaregilsson/create-issues-action@v1.0.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: "Follow-up on task #{{ env.GITHUB_SHA }}"
+        body: "Please follow-up on task #{{ env.GITHUB_SHA }} and provide an update on its progress."
+        labels: "Follow-up, task"
