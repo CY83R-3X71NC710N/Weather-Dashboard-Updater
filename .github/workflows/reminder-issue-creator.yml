@@ -1,8 +1,9 @@
-name: Create Issues
+name: Create Issues on Commit
 
 on:
-  schedule:
-    - cron:  '0 0 * * *' # runs every day at 00:00
+  push:
+    branches:
+      - main
 
 jobs:
   create_issues:
