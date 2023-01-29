@@ -22,7 +22,16 @@ data = {
     "date": weather_data["dt"],
     "temperature": weather_data["main"]["temp"],
     "humidity": weather_data["main"]["humidity"],
-    "wind_speed": weather_data["wind"]["speed"]
+    "wind_speed": weather_data["wind"]["speed"],
+    "min_temp": weather_data["main"]["temp_min"],
+    "max_temp": weather_data["main"]["temp_max"],
+    "pressure": weather_data["main"]["pressure"],
+    "visibility": weather_data.get("visibility", "N/A"),  # added this line
+    "cloud_coverage": weather_data["clouds"]["all"],
+    "sunrise_time": weather_data["sys"]["sunrise"],
+    "sunset_time": weather_data["sys"]["sunset"],
+    "weather_description": weather_data["weather"][0]["description"],
+    "weather_icon": weather_data["weather"][0]["icon"],
 }
 
 # Save the data to a CSV file
