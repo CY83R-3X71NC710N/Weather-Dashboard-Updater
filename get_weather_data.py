@@ -5,8 +5,8 @@ import requests
 api_key = "3076487f690bacceb693d2eb90b87f1e"
 
 # Set the city and country code for which you want to get the weather information
-city = "London"
-country_code = "uk"
+city = "milwaukee"
+country_code = "us"
 
 # Construct the API URL
 url = f"https://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&appid={api_key}"
