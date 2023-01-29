@@ -1,4 +1,4 @@
-name: Create Issues on Commit
+name: Create Issue on Commit
 
 on:
   push:
@@ -6,15 +6,14 @@ on:
       - main
 
 jobs:
-  create_issues:
+  create_issue:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Create Issues
+    - name: Create issue
       uses: peter-evans/create-issue-from-file@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        content-filepath: "issue.txt"
+        content-filepath: issue.txt
