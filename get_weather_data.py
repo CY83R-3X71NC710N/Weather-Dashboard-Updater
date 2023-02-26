@@ -1,15 +1,13 @@
 import csv
 import requests
-
-# Set your API key here
-api_key = "API_KEY"
+import os
 
 # Set the city and country code for which you want to get the weather information
 city = "milwaukee"
 country_code = "us"
 
-# Construct the API URL
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&appid={api_key}"
+# Construct the API URL using the environment variable as the API key
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&appid={os.environ['API_KEY']}"
 
 # Send the API request
 response = requests.get(url)
