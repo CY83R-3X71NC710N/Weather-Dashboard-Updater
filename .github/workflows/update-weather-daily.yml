@@ -16,9 +16,10 @@ jobs:
       with:
         python-version: 3.8
     - name: Install dependencies & Run Script
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
       run: |
         pip install requests
-        pip install -r requirements.txt
         python get_weather_data.py
     - name: Commit changes
       run: |
