@@ -1,4 +1,4 @@
-name: Create an issue on commit
+name: Create an issue every 7 days to check in and reflect
 
 on:
   schedule:
