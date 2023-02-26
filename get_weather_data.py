@@ -2,7 +2,7 @@ import csv
 import requests
 
 # Set your API key here
-api_key = "3076487f690bacceb693d2eb90b87f1e"
+api_key = "API_KEY"
 
 # Set the city and country code for which you want to get the weather information
 city = "milwaukee"
