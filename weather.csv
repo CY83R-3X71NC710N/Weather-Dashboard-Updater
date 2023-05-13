@@ -5386,3 +5386,4 @@
 401,Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.
 401,Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.
 -87.9668,43.0006,"[{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04d'}]",stations,287.51,286.59,285.18,292.5,1023,61,10000,8.23,20,10.29,75,1684022165,1,5263058,US,1683973864,1684026329,-18000,Milwaukee,200
+-87.9668,43.0006,"[{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04d'}]",stations,287.83,287,285.18,292.5,1023,63,10000,8.23,20,10.29,75,1684021696,1,5263058,US,1683973864,1684026329,-18000,Milwaukee,200
