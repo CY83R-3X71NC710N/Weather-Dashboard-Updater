@@ -17,7 +17,7 @@ weather_data = response.json()
 
 # Extract the data you want to save to the CSV file
 data = {
-    "date": weather_data["dt"],
+#    "date": weather_data["dt"],
     "temperature": weather_data["main"]["temp"],
     "humidity": weather_data["main"]["humidity"],
     "wind_speed": weather_data["wind"]["speed"],
