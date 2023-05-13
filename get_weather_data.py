@@ -17,14 +17,14 @@ weather_data = response.json()
 
 # Extract the data you want to save to the CSV file
 data = {
-#    "date": weather_data["dt"],
+    "date": weather_data.get("dt", "N/A"),
     "temperature": weather_data["main"]["temp"],
     "humidity": weather_data["main"]["humidity"],
     "wind_speed": weather_data["wind"]["speed"],
     "min_temp": weather_data["main"]["temp_min"],
     "max_temp": weather_data["main"]["temp_max"],
     "pressure": weather_data["main"]["pressure"],
-    "visibility": weather_data.get("visibility", "N/A"),  # added this line
+    "visibility": weather_data.get("visibility", "N/A"),
     "cloud_coverage": weather_data["clouds"]["all"],
     "sunrise_time": weather_data["sys"]["sunrise"],
     "sunset_time": weather_data["sys"]["sunset"],
