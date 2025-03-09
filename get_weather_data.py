@@ -45,14 +45,14 @@ for key, value in weather_data.items():
         data[key] = value
 
 # Check if the CSV file exists
-file_exists = os.path.isfile("weather.csv")
+file_exists = os.path.isfile("weatherupdate.csv")
 
 # Validate the structure of the existing CSV file
 if file_exists:
-    validate_csv_structure("weather.csv")
+    validate_csv_structure("weatherupdate.csv")
 
 # Save the data to a CSV file
-with open("weather.csv", "a") as csv_file:
+with open("weatherupdate.csv", "a") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=data.keys())
     
     # Write the header row if the file does not exist
@@ -63,5 +63,5 @@ with open("weather.csv", "a") as csv_file:
     writer.writerow(data)
 
 # Read the CSV file and format it for better readability
-df = pd.read_csv("weather.csv")
-df.to_csv("weather.csv", index=False)
+df = pd.read_csv("weatherupdate.csv")
+df.to_csv("weatherupdate.csv", index=False)

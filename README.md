@@ -9,7 +9,7 @@ https://home.openweathermap.org/api_keys
 ```
 Go sign up for openweathermap to obtain an API key
 git clone https://github.com/CY83R-3X71NC710N/Weather-Dashboard-Updater.git
-rm -rf weather.csv # Remove the existing .csv as this includes previous data.
+rm -rf weatherupdate.csv # Remove the existing .csv as this includes previous data.
 API_KEY = Insert_API_Key
 pip install requests pandas
 python3 get_weather_data.py
@@ -18,7 +18,7 @@ The file will be outputed to a .csv in the current working directory allowing yo
 ```
 
 # Improving the structure and appearance of the output
-The weather data is now saved in a CSV file (`weather.csv`) with improved structure and readability. The script `get_weather_data.py` extracts weather data from the OpenWeatherMap API and saves it to a CSV file, with the data well-organized and formatted for easy readability.
+The weather data is now saved in a CSV file (`weatherupdate.csv`) with improved structure and readability. The script `get_weather_data.py` extracts weather data from the OpenWeatherMap API and saves it to a CSV file, with the data well-organized and formatted for easy readability.
 
 # Interpreting the structured weather data
 The CSV file contains the following columns:
@@ -51,4 +51,4 @@ The CSV file contains the following columns:
 - `cod`: Internal parameter
 
 # Validating the CSV structure
-The script now includes a validation step to ensure the CSV file has a consistent structure before appending new data. The `validate_csv_structure` function checks the structure of the existing `weather.csv` file and removes or corrects any inconsistent rows. This helps prevent errors when reading the CSV file with `pd.read_csv`.
+The script now includes a validation step to ensure the CSV file has a consistent structure before appending new data. The `validate_csv_structure` function checks the structure of the existing `weatherupdate.csv` file and removes or corrects any inconsistent rows. This helps prevent errors when reading the CSV file with `pd.read_csv`.
