@@ -49,3 +49,6 @@ The CSV file contains the following columns:
 - `id`: City ID
 - `name`: City name
 - `cod`: Internal parameter
+
+# Validating the CSV structure
+The script now includes a validation step to ensure the CSV file has a consistent structure before appending new data. The `validate_csv_structure` function checks the structure of the existing `weather.csv` file and removes or corrects any inconsistent rows. This helps prevent errors when reading the CSV file with `pd.read_csv`.

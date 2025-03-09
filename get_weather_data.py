@@ -3,6 +3,24 @@ import requests
 import os
 import pandas as pd
 
+def validate_csv_structure(file_path):
+    """
+    Validate the structure of the CSV file.
+    Remove or correct inconsistent rows.
+    """
+    try:
+        df = pd.read_csv(file_path)
+        # Check for rows with inconsistent number of fields
+        expected_columns = df.columns
+        for index, row in df.iterrows():
+            if len(row) != len(expected_columns):
+                df.drop(index, inplace=True)
+        df.to_csv(file_path, index=False)
+    except pd.errors.ParserError:
+        # Handle the case where the CSV file is completely corrupted
+        df = pd.DataFrame(columns=expected_columns)
+        df.to_csv(file_path, index=False)
+
 # Set the city and country code for which you want to get the weather information
 city = "milwaukee"
 country_code = "us"
@@ -28,6 +46,10 @@ for key, value in weather_data.items():
 
 # Check if the CSV file exists
 file_exists = os.path.isfile("weather.csv")
+
+# Validate the structure of the existing CSV file
+if file_exists:
+    validate_csv_structure("weather.csv")
 
 # Save the data to a CSV file
 with open("weather.csv", "a") as csv_file:
